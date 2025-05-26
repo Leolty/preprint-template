@@ -8,7 +8,7 @@ A personal LaTeX template I designed for writing academic preprints and papers. 
 
 ## 📖 About
 
-This is a LaTeX template I created for my own preprint papers. 🎓
+This is a LaTeX template I created for my own (and my friends') preprint papers. 🎓
 
 ## 🚀 Usage
 
