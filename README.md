@@ -1,5 +1,7 @@
 # 📝 Preprint Template
 
+🌐 **Language / 语言**: [English](README.md) | [中文](README_zh.md)
+
 A personal LaTeX template I designed for writing academic preprints and papers. ✨
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
