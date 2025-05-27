@@ -117,15 +117,21 @@
 
 % --- Author Information ---
 \newcommand\authorlist{}
-\newcommand\authorformat[2][]{{\sffamily\bfseries\color{ucsdnavy} #2%
-  \ifx&#1&\else\textsuperscript{\color{ucsdgold}#1}\fi}}
-\renewcommand\author[2][]{\addtolist[#1]{#2}{\authorlist}{\authorformat}{, }}
+\newcommand\authorformat[2][]{{\sffamily\bfseries\color{ucsdnavy}#2\ifx&#1&\else\textsuperscript{\color{ucsdgold}#1}\fi}}
+\renewcommand\author[2][]{\addtolist[#1]{#2}{\authorlist}{\authorformat}{ }}
+
+% Command to add manual separators
+\newcommand\separatorformat[2][]{#2}
+\newcommand\authorsep[1]{\addtolist{#1}{\authorlist}{\separatorformat}{}}
 
 % --- Affiliation Information ---
 \newcommand\affiliationlist{}
-\newcommand\affiliationformat[2][]{{\small\color{ucsdgray}%
-  \ifx&#1&\else\textsuperscript{\color{ucsdgold}#1}\fi #2}}
-\newcommand\affiliation[2][]{\addtolist[#1]{#2}{\affiliationlist}{\affiliationformat}{\\}}
+\newcommand\affiliationformat[2][]{{\small\color{ucsdgray}\ifx&#1&\else\textsuperscript{\color{ucsdgold}#1}\fi#2}}
+\newcommand\affiliation[2][]{\addtolist[#1]{#2}{\affiliationlist}{\affiliationformat}{ }}
+
+% Command to add manual separators for affiliations (matches affiliation style)
+\newcommand\affiliationseparatorformat[2][]{{\small\color{ucsdgray}#2}}
+\newcommand\affiliationsep[1]{\addtolist{#1}{\affiliationlist}{\affiliationseparatorformat}{}}
 
 % --- Contribution Notes ---
 \newcommand\contributionlist{}
