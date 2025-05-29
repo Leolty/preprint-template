@@ -98,7 +98,7 @@
 
 % --- Caption Formatting ---
 \RequirePackage{caption}
-\DeclareCaptionLabelSeparator{custom}{ }
+\DeclareCaptionLabelSeparator{custom}{: }
 \DeclareCaptionFormat{custom}{{\sffamily\bfseries\color{ucsdnavy}#1#2}{\color{ucsdtext}#3}}
 \captionsetup{singlelinecheck=false,format=custom,labelsep=custom,font=small}
 \captionsetup[sub]{singlelinecheck=true,format=custom,labelsep=custom,font=small}
