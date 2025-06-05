@@ -20,7 +20,9 @@
 \RequirePackage{setspace}       % Line spacing
 \RequirePackage[latin,english]{babel}
 \RequirePackage{etoolbox}       % Programming tools
-\DisableLigatures[f]{family=sf*} % Disable ligatures in sans-serif fonts
+% \DisableLigatures[f]{family=sf*} % Disable ligatures in sans-serif fonts
+% \DisableLigatures[f]{family=cmss}
+
 
 % ===========================================================================
 % VISUAL ELEMENTS
@@ -85,7 +87,7 @@
 % ===========================================================================
 % --- Section Formatting ---
 \RequirePackage{titlesec}
-\titleformat*{\paragraph}{\color{ucsdnavy}\itshape}
+\titleformat*{\paragraph}{\color{ucsdnavy}\sffamily\bfseries}
 \titleformat{\section}{\Large\sffamily\bfseries\color{ucsdnavy}}{\thesection}{1em}{}
 \titleformat{\subsection}{\large\sffamily\bfseries\color{ucsdnavy}}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\normalsize\sffamily\bfseries\color{ucsdnavy}}{\thesubsubsection}{1em}{}
@@ -124,9 +126,18 @@
 \newcommand\separatorformat[2][]{#2}
 \newcommand\authorsep[1]{\addtolist{#1}{\authorlist}{\separatorformat}{}}
 
+% Enhanced authorsep command with line spacing
+\renewcommand\authorsep[1]{%
+  \ifstrequal{#1}{\\}{%
+    \addtolist{\\[3.5pt]}{\authorlist}{\separatorformat}{}%
+  }{%
+    \addtolist{#1}{\authorlist}{\separatorformat}{}%
+  }%
+}
+
 % --- Affiliation Information ---
 \newcommand\affiliationlist{}
-\newcommand\affiliationformat[2][]{{\small\color{ucsdgray}\ifx&#1&\else\textsuperscript{\color{ucsdgold}#1}\fi#2}}
+\newcommand\affiliationformat[2][]{{\normalsize\color{ucsdgray}\ifx&#1&\else\textsuperscript{\color{ucsdgold}#1}\fi#2}}
 \newcommand\affiliation[2][]{\addtolist[#1]{#2}{\affiliationlist}{\affiliationformat}{ }}
 
 % Command to add manual separators for affiliations (matches affiliation style)
@@ -135,7 +146,7 @@
 
 % --- Contribution Notes ---
 \newcommand\contributionlist{}
-\newcommand\contributionformat[2][]{{\footnotesize\color{ucsdgray}%
+\newcommand\contributionformat[2][]{{\small\color{ucsdgray}%
   \ifx&#1&\else\textsuperscript{\color{ucsdgold}#1}\fi #2}}
 \newcommand\contribution[2][]{\addtolist[#1]{#2}{\contributionlist}{\contributionformat}{, }}
 
@@ -275,7 +286,7 @@
     \begin{center} 
       {\fontsize{26pt}{30pt}\selectfont\sffamily\bfseries\color{ucsdnavy}\titlelist}\par
       \vskip 0.6cm
-      {\large\authorlist}\par
+      {\fontsize{11}{16}\authorlist\\[4pt]}\par
       \vskip 0.3cm
       \begin{minipage}{\metadataboxwidth} % This is 0.9\textwidth
         \centering
